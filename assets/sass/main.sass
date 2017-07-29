@@ -1,0 +1,111 @@
+@charset 'utf-8'
+@import ./vars
+
+// Utils
+@import '~bulma/sass/utilities/initial-variables.sass'
+// @import '~bulma/sass/utilities/functions.sass'
+@import '~bulma/sass/utilities/derived-variables.sass'
+// @import '~bulma/sass/utilities/animations.sass'
+@import '~bulma/sass/utilities/mixins.sass'
+@import '~bulma/sass/utilities/controls.sass'
+
+// Base
+@import '~bulma/sass/base/_all'
+
+// Elements
+// @import '~bulma/sass/elements/box.sass'
+@import '~bulma/sass/elements/button.sass'
+@import '~bulma/sass/elements/content.sass'
+@import '~bulma/sass/elements/form.sass'
+@import '~bulma/sass/elements/icon.sass'
+// @import '~bulma/sass/elements/image.sass'
+@import '~bulma/sass/elements/notification.sass'
+// @import '~bulma/sass/elements/progress.sass'
+// @import '~bulma/sass/elements/table.sass'
+// @import '~bulma/sass/elements/tag.sass'
+@import '~bulma/sass/elements/title.sass'
+@import '~bulma/sass/elements/other.sass'
+
+// Components
+// @import '~bulma/sass/components/breadcrumb.sass'
+@import '~bulma/sass/components/card.sass'
+@import '~bulma/sass/components/dropdown.sass'
+@import '~bulma/sass/components/level.sass'
+@import '~bulma/sass/components/media.sass'
+@import '~bulma/sass/components/menu.sass'
+// @import '~bulma/sass/components/message.sass'
+// @import '~bulma/sass/components/modal.sass'
+@import '~bulma/sass/components/nav.sass'
+@import '~bulma/sass/components/navbar.sass'
+// @import '~bulma/sass/components/pagination.sass'
+// @import '~bulma/sass/components/panel.sass'
+@import '~bulma/sass/components/tabs.sass'
+
+// Grid
+@import '~bulma/sass/grid/columns.sass'
+// @import '~bulma/sass/grid/tiles.sass'
+
+// Layout (Hero, section & footer)
+@import '~bulma/sass/layout/_all'
+
+body,
+html
+  height: 100%
+
+body
+  overflow: visible
+
+a
+  transition: color .25s
+
+.page-enter-active,
+.page-leave-active
+  transition: opacity .25s, transform .25s
+
+.page-enter,
+.page-leave-to
+  opacity: 0
+  transform: scale(1.01)
+
+.slide-right-enter-active
+  transition: opacity .3s, transform .5s
+
+.slide-right-leave-active
+  transition: opacity .3s, transform .3s
+
+.slide-right-enter
+  opacity: 0
+  transform: translateX(-50%)
+
+.slide-right-leave-to
+  opacity: 0
+  transform: translateX(110%)
+
+.layout
+  display: flex
+  min-height: 100vh
+  flex-direction: column
+  header ~ section,
+  .page-section
+    flex: 1
+
+.loader-outer
+  top: 50%
+  left: 50%
+  margin-top: -1rem
+  margin-left: -1rem
+  position: absolute
+
+.loader.is-primary
+  width: 2rem
+  height: 2rem
+  border-bottom-color: $primary
+  border-left-color: $primary
+
+.fade-transition
+  transition: opacity linear .3s 0s
+  opacity: 1
+
+.fade-enter,
+.fade-leave
+  opacity: 0

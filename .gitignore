@@ -1,0 +1,21 @@
+# dependencies
+node_modules
+
+# logs
+npm-debug.log
+
+# Nuxt build
+.nuxt
+
+# Nuxt generate
+dist
+
+# Backpack build
+build
+
+# Nuxtjs/Workbox generated files
+static/sw.js
+static/workbox-sw*.js*
+
+# PHP Storm IDE Project
+.idea/
