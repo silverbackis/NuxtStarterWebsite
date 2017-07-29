@@ -1,7 +1,7 @@
 {
   "name": "bw-starter",
-  "version": "1.2.1",
-  "description": "Nuxt.js project",
+  "version": "0.0.1",
+  "description": "Nuxt.js starter website project",
   "author": "Daniel West <daniel@silverback.is>",
   "private": true,
   "scripts": {

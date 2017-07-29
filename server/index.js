@@ -53,8 +53,7 @@ app.use(helmet())
 // Parse cookies from request (authorization)
 app.use(cookieParser())
 
-// Import API Routes - param 1 is prefix
-app.use('', api)
+app.use(api)
 
 // Import and Set Nuxt.js options
 let config = require('../nuxt.config.js')

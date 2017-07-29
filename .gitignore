@@ -1,3 +1,5 @@
+.DS_Store
+
 # dependencies
 node_modules
 
@@ -19,3 +21,4 @@ static/workbox-sw*.js*
 
 # PHP Storm IDE Project
 .idea/
+.env

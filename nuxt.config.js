@@ -83,7 +83,7 @@ module.exports = {
         },
         manifest: true,
         meta: false,
-        workbox: true,
+        workbox: false,
         optimize: {
           cssnano: {
             zindex: false
