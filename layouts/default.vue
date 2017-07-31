@@ -1,13 +1,13 @@
 <template>
   <div class="layout">
-    <!-- <cms-bar v-if="hasRole('ROLE_ADMIN')" endpointKey="page" label="Top level page" /> -->
+    <cms-bar v-if="hasRole('ROLE_ADMIN')" endpointKey="page" label="Top level page" />
     <header>
       <main-nav />
     </header>
 
     <nuxt :nuxtChildKey="nuxtChildKey" />
 
-    <!-- <notifications />
+    <notifications />
 
     <footer class="footer">
       <div class="container has-text-right">
@@ -19,7 +19,7 @@
                    to="/admin/login"
         >Admin login</nuxt-link> | <a href="https://github.com/silverbackis/StarterWebsite" target="_blank" rel="noopener">GitHub Repo</a>
       </div>
-    </footer> -->
+    </footer>
   </div>
 </template>
 
