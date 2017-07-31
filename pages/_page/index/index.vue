@@ -1,11 +1,11 @@
 <template>
   <div>
     <text-block :content="nuxtParent.body" :patchUrl="nuxtParent.patchUrl" name="body" />
-    <div class="columns is-centered form-columns" v-if="nuxtParent.hasForm">
+    <div class="columns is-centered form-columns" v-if="form">
       <div class="column is-8-tablet">
         <div class="card">
           <div class="card-content">
-            <api-form loaded-form :form="nuxtParent.form" :successFn="getFormResponse" />
+            <api-form loaded-form :form="form" :successFn="getFormResponse" />
           </div>
         </div>
       </div>
@@ -32,7 +32,10 @@
     computed: {
       ...mapGetters({
         hasRole: 'hasRole'
-      })
+      }),
+      form () {
+        return this.nuxtParent.formData
+      }
     },
     methods: {
       ...mapMutations({

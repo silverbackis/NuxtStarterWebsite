@@ -115,7 +115,6 @@ function fetchPage ({ error, store, app }, { slug, cmsKey, menu, patchUrlPrefix 
               case loadPaths.form:
                 newData = Object.assign(newData, {
                   formData: Object.assign(
-                    {},
                     {
                       lastModified: res.headers['last-modified']
                     },
