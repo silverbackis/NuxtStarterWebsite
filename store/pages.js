@@ -6,7 +6,7 @@ export const state = () => ({
 
 export const getters = {
   getPage: (state) => (slug) => {
-    return state.pages[slug]
+    return state.pages[slug] || {}
   }
 }
 

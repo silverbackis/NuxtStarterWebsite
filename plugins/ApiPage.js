@@ -39,7 +39,7 @@ function fetchPage ({ error, store, app }, { slug, cmsKey, menu, patchUrlPrefix 
   // menu ops
   if (!(menu instanceof Object)) { menu = {} }
   let menuOrderQs = []
-  if (menu.sort) { menuOrderQs.push('sortBy=' + menu.sort) }
+  if (menu.sortBy) { menuOrderQs.push('sortBy=' + menu.sortBy) }
   if (menu.order) { menuOrderQs.push('sortOrder=' + menu.order) }
   if (menuOrderQs.length > 0) {
     menuOrderQs = menuOrderQs.join('&')
@@ -59,12 +59,13 @@ function fetchPage ({ error, store, app }, { slug, cmsKey, menu, patchUrlPrefix 
       slug: slug,
       data: newData
     })
-    // Ensure we call back after the page has been initialised
+    return vmData
+    /* Ensure we call back after the page has been initialised
     return new Promise((resolve) => {
       Vue.nextTick(() => {
         resolve(vmData)
       })
-    })
+    }) */
   }
 
   // Do the request for the page from API
