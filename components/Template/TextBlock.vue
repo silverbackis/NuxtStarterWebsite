@@ -5,10 +5,9 @@
          v-html="staticContent"
     ></div>
     <div v-else>
-      <component :is="editor"
-                 :model="content"
-                 :endpoint="patchUrl"
-                 :name="name"
+      <editor :model="content"
+              :endpoint="patchUrl"
+              :name="name"
       />
     </div>
   </div>
