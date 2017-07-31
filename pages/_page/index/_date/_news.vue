@@ -1,10 +1,13 @@
 <template>
+  <div v-if="page.liveDate !== undefined">
+    <h1>page.liveDate is defined</h1>
+  </div>
+  <!--
   <div :class="'content ' + $route.name">
     <cms-bar v-if="hasRole('ROLE_ADMIN')" endpointKey="news" label="News Post" :autoSave="true" />
     <div class="columns is-gapless news-dates-columns">
-      <div class="column is-3">
-        <cms-checkbox v-if="hasRole('ROLE_ADMIN')"
-                      :model="modelLive"
+      <div class="column is-3" v-if="hasRole('ROLE_ADMIN')">
+        <cms-checkbox :model="modelLive"
                       :endpoint="page.patchUrl"
                       name="live"
                       label="Live"
@@ -43,27 +46,24 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>
-  import { mapGetters, mapMutations } from 'vuex'
-  import ApiPage from '~/pages/_ApiPage'
+  import PageMixin from '~/plugins/ApiPageMixin'
   import TextBlock from '~/components/Template/TextBlock.vue'
   import HeaderImage from '~/components/Template/HeaderImage.vue'
-  import CmsBar from '~/components/Cms/CmsBar'
-  import CmsTextInput from '~/components/Cms/Text'
-  import CmsCheckbox from '~/components/Cms/Checkbox'
   import Fecha from 'fecha'
 
   export default {
-    mixins: [ApiPage.mixins],
+    props: ['nuxtParent'],
+    mixins: [PageMixin],
     components: {
       TextBlock,
-      CmsBar,
-      CmsTextInput,
-      CmsCheckbox,
-      HeaderImage
+      HeaderImage,
+      CmsBar: () => import('~/components/Cms/CmsBar'),
+      CmsTextInput: () => import('~/components/Cms/Text'),
+      CmsCheckbox: () => import('~/components/Cms/Checkbox')
     },
     filters: {
       formatDate (value) {
@@ -73,9 +73,6 @@
       }
     },
     computed: {
-      ...mapGetters({
-        hasRole: 'hasRole'
-      }),
       modelHeader () {
         return this.page.header
       },
@@ -86,23 +83,13 @@
         return this.page.headerImage
       }
     },
-    asyncData (context) {
-      return ApiPage.getPage(context, {
-        slug: context.route.fullPath.replace(/^\//, ''),
-        patchUrlPrefix: 'admin/news',
-        cmsKey: 'news'
-      })
-    },
     methods: {
-      ...mapMutations({
-        addNotification: 'notifications/addNotification'
-      }),
       reloadSideMenu () {
         this.$emit('reloadSideMenu')
       },
       deleteNews () {
         this.$axios.delete(this.page.patchUrl)
-          .then((res) => {
+          .then(() => {
             this.$emit('reloadSideMenu')
             this.$router.replace('/news')
             this.addNotification('News item successfully deleted')
@@ -112,12 +99,20 @@
             console.warn(err)
           })
       }
+    },
+    asyncData ({ app, route }) {
+      return app.$getPage({
+        slug: route.fullPath.replace(/^\//, ''),
+        patchUrlPrefix: 'admin/news',
+        cmsKey: 'news'
+      })
     }
   }
 </script>
 
 <style lang="sass">
   @import ~assets/sass/_vars
+
   .news-dates
     color: $grey
     font-size: .8rem

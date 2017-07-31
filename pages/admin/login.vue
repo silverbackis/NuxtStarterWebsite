@@ -30,21 +30,21 @@
 </template>
 
 <script>
-  import ApiForm from '~/components/Form/ApiForm.vue'
   import { mapMutations, mapGetters, mapActions } from 'vuex'
+  import ApiForm from '~/components/Form/ApiForm.vue'
   import _FormId from '~/components/Form/_FormId'
   import jwtDecode from 'jwt-decode'
 
   export default {
     mixins: [_FormId],
+    components: {
+      ApiForm
+    },
     head: {
       title: 'Admin Login',
       meta: [
         { hid: 'description', name: 'description', content: '' }
       ]
-    },
-    components: {
-      ApiForm
     },
     computed: {
       ...mapGetters({
@@ -77,6 +77,16 @@
         }
       }
     },
+    mounted () {
+      let authUser = this.getAuthUser()
+      if (authUser) {
+        this.addNotification('You are already logged in')
+        this.$router.replace('/')
+      }
+    },
+    beforeDestroy () {
+      this.destroyForm(this.formId)
+    },
     asyncData ({ app, store }) {
       return app.$axios.get(store.getters.getApiUrl('login'))
         .then((res) => {
@@ -90,16 +100,6 @@
         .catch((err) => {
           console.warn('Could not load form', err)
         })
-    },
-    mounted () {
-      let authUser = this.getAuthUser()
-      if (authUser) {
-        this.addNotification('You are already logged in')
-        this.$router.replace('/')
-      }
-    },
-    beforeDestroy () {
-      this.destroyForm(this.formId)
     }
   }
 </script>

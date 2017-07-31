@@ -32,6 +32,18 @@
         default: false
       }
     },
+    /* components: {
+      SimpleInput: () => import('./Type/Input/Simple'),
+      TextareaInput: () => import('./Type/Input/Textarea'),
+      ChoiceInput: () => import('./Type/Input/Choice'),
+      ButtonInput: () => import('./Type/Input/Button'),
+      CheckboxInput: () => import('./Type/Input/Checkbox'),
+      SimpleInputWrapped: () => import('./Type/Wrapped/Simple'),
+      TextareaInputWrapped: () => import('./Type/Wrapped/Textarea'),
+      ChoiceInputWrapped: () => import('./Type/Wrapped/Choice'),
+      ButtonInputWrapped: () => import('./Type/Wrapped/Button'),
+      CheckboxInputWrapped: () => import('./Type/Wrapped/Checkbox')
+    }, */
     data () {
       return {
         inputComponentType: null,

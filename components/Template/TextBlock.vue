@@ -20,9 +20,11 @@
   export default {
     data () {
       return {
-        staticContent: null,
-        editor: null
+        staticContent: null
       }
+    },
+    components: {
+      editor: () => import('~/components/Cms/Quill')
     },
     props: {
       content: {
@@ -56,10 +58,6 @@
       }
     },
     created () {
-      // https://vuejs.org/v2/guide/components.html#Advanced-Async-Components
-      this.editor = () => ({
-        component: import('~/components/Cms/Quill')
-      })
       this.staticContent = this.content
     }
   }

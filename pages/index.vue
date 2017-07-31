@@ -60,7 +60,7 @@
           <div class="column is-8-widescreen is-7-tablet">
             <text-block :content="page.body" :patchUrl="page.patchUrl" name="body" />
 
-            <!-- <meta-description v-if="hasRole('ROLE_ADMIN')" :patchUrl="page.patchUrl" :metaDescription="page.metaDescription" /> -->
+            <meta-description v-if="hasRole('ROLE_ADMIN')" :patchUrl="page.patchUrl" :metaDescription="page.metaDescription" />
           </div>
           <div class="column tweets-column">
             <twitter-feed />
@@ -72,13 +72,11 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex'
-  import ApiPage from '~/pages/_ApiPage'
+  import PageMixin from '~/plugins/ApiPageMixin'
   import Hero from '~/components/Template/Hero'
   import ImageLoader from '~/components/Template/ImageLoader'
   import TextBlock from '~/components/Template/TextBlock.vue'
   import TwitterFeed from '~/components/TwitterFeed/TwitterFeed'
-  import Vue from 'vue'
 
   export default {
     data () {
@@ -86,25 +84,16 @@
         titleTemplate: '%s'
       }
     },
-    mixins: [ApiPage.mixins],
+    mixins: [PageMixin],
     components: {
       Hero,
       ImageLoader,
+      TextBlock,
       TwitterFeed,
-      TextBlock
+      MetaDescription: () => import('~/components/Template/MetaDescription')
     },
-    computed: {
-      ...mapGetters({
-        hasRole: 'hasRole'
-      })
-    },
-    mounted () {
-      if (this.hasRole('ROLE_ADMIN')) {
-        Vue.component('MetaDescription', () => import('~/components/Template/MetaDescription'))
-      }
-    },
-    asyncData (context) {
-      return ApiPage.getPage(context, {
+    asyncData ({ app }) {
+      return app.$getPage({
         slug: '',
         patchUrlPrefix: 'admin/pages',
         cmsKey: 'page'
@@ -144,6 +133,4 @@
     min-width: 155px
     +desktop
       height: 110px
-    .placeholder
-      background: $white !important
 </style>

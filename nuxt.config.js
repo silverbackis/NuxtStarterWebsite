@@ -55,6 +55,7 @@ module.exports = {
    * Plugins
    */
   plugins: [
+    { src: '~/plugins/ApiPage', ssr: true },
     { src: '~/plugins/VueCookie', ssr: false },
     { src: '~/plugins/AuthInterceptor', ssr: false },
     { src: '~/plugins/Quill.js', ssr: false }
