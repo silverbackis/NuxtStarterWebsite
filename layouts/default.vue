@@ -24,6 +24,7 @@
 </template>
 
 <script>
+  import { compile } from '~/.nuxt/utils'
   import { mapGetters, mapMutations } from 'vuex'
   import MainNav from '~/components/MainNav/MainNav.vue'
   import Notifications from '~/components/Template/Notifications/Notifications'
@@ -67,7 +68,10 @@
         return this.getAuthUser()
       },
       nuxtChildKey () {
-        return this.$route.fullPath.split('/')[1]
+        if (this.$route.matched.length > 1) {
+          return compile(this.$route.matched[0].path)(this.$route.params)
+        }
+        return this.$route.fullPath.split('#')[0]
       }
     },
     head () {

@@ -1,39 +1,49 @@
 <template>
-  <nav class="nav has-shadow">
-    <div class="container">
-      <div class="nav-left">
-        <div class="nav-item is-paddingless">
-          <nuxt-link to="/" exact>
-            <img src="~assets/images/bw-logo.svg" alt="British Websites logo" class="logo" />
-          </nuxt-link>
+  <div class="columns">
+    <div class="column">
+      <countdown />
+      <div class="columns">
+        <div class="column">
+          <nav class="nav has-shadow">
+            <div class="container">
+              <div class="nav-left">
+                <div class="nav-item is-paddingless">
+                  <nuxt-link to="/" exact>
+                    <img src="~assets/images/bw-logo.svg" alt="British Websites logo" class="logo" />
+                  </nuxt-link>
+                </div>
+              </div>
+              <a
+                :class="{'nav-toggle-bw': true, 'nav-toggle-active': showNav }"
+                aria-controls="mobileNavCollapse"
+                :aria-expanded="showNav ? 'true' : 'false'"
+                aria-label="Toggle menu"
+                @click.prevent="showNav = !showNav"
+                v-on-clickaway="toggleClickaway"
+              >
+                <span class="toggle-line"></span>
+                <span class="toggle-line"></span>
+                <span class="toggle-line"></span>
+                <span class="text">Menu</span>
+              </a>
+              <collapse id="mobileNavCollapse">
+                <div class="nav-right nav-menu" v-show="showNav">
+                  <main-nav-item v-for="(child, index) in navMenuLinks" :key="index" :link="child.link" />
+                </div>
+              </collapse>
+            </div>
+          </nav>
         </div>
       </div>
-      <a
-        :class="{'nav-toggle-bw': true, 'nav-toggle-active': showNav }"
-        aria-controls="mobileNavCollapse"
-        :aria-expanded="showNav ? 'true' : 'false'"
-        aria-label="Toggle menu"
-        @click.prevent="showNav = !showNav"
-        v-on-clickaway="toggleClickaway"
-      >
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="text">Menu</span>
-      </a>
-      <collapse id="mobileNavCollapse">
-        <div class="nav-right nav-menu" v-show="showNav">
-          <main-nav-item v-for="(child, index) in navMenuLinks" :key="index" :link="child.link" />
-        </div>
-      </collapse>
     </div>
-  </nav>
+  </div>
 </template>
 
 <script>
   import { mixin as clickaway } from 'vue-clickaway'
   import Collapse from '~/components/Template/Collapse.vue'
   import MainNavItem from './MainNavItem'
+  import Countdown from './Countdown'
 
   export default {
     mixins: [ clickaway ],
@@ -42,7 +52,8 @@
     }),
     components: {
       Collapse,
-      MainNavItem
+      MainNavItem,
+      Countdown
     },
     computed: {
       navMenu () {

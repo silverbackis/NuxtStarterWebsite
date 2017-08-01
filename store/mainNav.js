@@ -21,7 +21,9 @@ export const mutations = {
     state.loadingEl = state.nextLoadingEl
   },
   setError (state, error) {
-    console.log('set error', error)
+    if (error.message) {
+      error.message = 'Menu error: ' + error.message
+    }
     state.error = error
   }
 }
