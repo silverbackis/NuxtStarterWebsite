@@ -23,6 +23,7 @@
     "cross-env": "^5.0.1",
     "dotenv": "^4.0.0",
     "dropzone": "^5.1.1",
+    "es6-promise": "^4.1.1",
     "express": "^4.15.3",
     "express-mysql-session": "^1.2.1",
     "express-session": "^1.15.4",
