@@ -18,6 +18,7 @@ build
 # Nuxtjs/Workbox generated files
 static/sw.js
 static/workbox-sw*.js*
+static/workbox/*
 
 # PHP Storm IDE Project
 .idea/
