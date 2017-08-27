@@ -1,7 +1,7 @@
 # Starter Website
 ### Using NuxtJS, Bulma CSS and Symfony
 
-[![Known Vulnerabilities](https://snyk.io/test/github/silverbackis/starterwebsite/badge.svg)](https://snyk.io/test/github/silverbackis/starterwebsite)
+[![Known Vulnerabilities](https://snyk.io/test/github/silverbackis/nuxtstarterwebsite/badge.svg)](https://snyk.io/test/github/silverbackis/nuxtstarterwebsite)
 
 **This project is under development and Pull Requests are more than welcome.**
 
@@ -59,7 +59,7 @@ DB_USER=USERNAME
 DB_PASS=PASSWORD
 ```
 
-**[Click here for Symfony API installation](https://github.com/silverbackis/StarterWebsite/tree/master/api)**
+**[Click here for Symfony API installation](https://github.com/silverbackis/NuxtStarterWebsite-SymfonyAPI/blob/master/README.md)**
 
 **Your `api/config/parameters.yml` file should use the same value for `cookie_secret` as `COOKIE_SECRET` in your `.env` file**
 

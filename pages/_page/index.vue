@@ -25,6 +25,7 @@
   import PageMixin from '~/plugins/ApiPageMixin'
 
   export default {
+    name: 'parent',
     mixins: [PageMixin],
     components: {
       Hero,

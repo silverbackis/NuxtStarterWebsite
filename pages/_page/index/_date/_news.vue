@@ -52,6 +52,7 @@
   import Fecha from 'fecha'
 
   export default {
+    name: 'news_item',
     props: ['nuxtParent'],
     mixins: [PageMixin],
     components: {
