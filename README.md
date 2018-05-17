@@ -1,15 +1,15 @@
 # Starter Website
-### Using NuxtJS, Bulma CSS and Symfony
+## Using NuxtJS, Bulma CSS and Symfony
+### DEPRECATED -- This project has moved to [BW Starter Web App](https://github.com/silverbackis/BwStarterWebApp)
 
 [![Known Vulnerabilities](https://snyk.io/test/github/silverbackis/nuxtstarterwebsite/badge.svg)](https://snyk.io/test/github/silverbackis/nuxtstarterwebsite)
 
-**This project is under development and Pull Requests are more than welcome.**
-
-[Current release live demo](https://demo.starter.b-w.uk)
 
 ## What is this package?
 With the creation of NuxtJS, building a VueJS web app with server-side rendering (SSR) has never been easier.
 Coupled with an API, this is the next generation of websites and this package aims to give you a starting point.
+
+### DEPRECATED -- This project has moved to [BW Starter Web App](https://github.com/silverbackis/BwStarterWebApp)
 
 ## Background
 As a developer, for years I've seen websites trying to imitate what this kind of system can now implement. Real-time
@@ -19,6 +19,8 @@ I was building websites using Symfony, which is now the back-end framework used 
 website is to bring together some of the best frameworks out there to demonstrate how they can work in harmony. I chose
 these frameworks for many reasons, but the most modern and exciting part is definitely NuxtJS (and VueJS) which is SO
 good.
+
+### DEPRECATED -- This project has moved to [BW Starter Web App](https://github.com/silverbackis/BwStarterWebApp)
 
 ## Project Scope
 This project is designed for developers and those who will be making websites for others. There are websites out there which
@@ -39,6 +41,8 @@ It also has these features:
 - Real-time image loading
 - Example of external API integration (Twitter feed)
 - Content Management with secure login/logout techniques
+
+### DEPRECATED -- This project has moved to [BW Starter Web App](https://github.com/silverbackis/BwStarterWebApp)
 
 ## Installation
 ```bash
@@ -65,6 +69,8 @@ DB_PASS=PASSWORD
 
 **NodeJS sessions are configured to save to a MySQL database - the API also uses a MySQL database. You can make the credentials the same if you'd like to use the same database**
 
+### DEPRECATED -- This project has moved to [BW Starter Web App](https://github.com/silverbackis/BwStarterWebApp)
+
 ### Running locally
 ```bash
 $ npm run dev
@@ -74,6 +80,8 @@ $ php bin/console server:run 127.0.0.1:9000
 Visit http://127.0.0.1:8000 to view the website
 Visit http://127.0.0.1:9000 for the API
 Visit http://127.0.0.1:9000/docs for the API docs (incomplete)
+
+### DEPRECATED -- This project has moved to [BW Starter Web App](https://github.com/silverbackis/BwStarterWebApp)
 
 ### Deploying on Plesk
 You should **always** Use SSL certificates in live environments - you can install the Let's Encrypt extension
@@ -145,22 +153,4 @@ $ echo 'proxy_cache_path /var/cache/nginx_cache levels=1:2 keys_zone=VUEJS:10m i
 $ systemctl restart nginx
 ```
 
-
-## Built with utterly superb packages
-I cannot thank the developers enough who make the packages that have been used here. Here are just a few:
-### [Nuxt-Express](https://github.com/nuxt-community/express-template) 
-This is the biggest and most exciting one. It is [VueJS](https://vuejs.org/) with [NuxtJs](https://nuxtjs.org/) and using the [ExpressJS](https://expressjs.com/)
-server which means when I created this, it is even possible to release on a Plesk server (Phusion Passenger)
-
-### [Symfony](https://symfony.com/)
-If you know PHP frameworks, you'll know Symfony. I know Laravel is a good choice too, but there are so many reasons to use Symfony
-as well. I've also implemented the [Symfony CMF core bundles](http://symfony.com/doc/current/cmf/cookbook/editions/cmf_core.html).
-
-### [Bulma](http://bulma.io/)
-A CSS-only front-end framework. Beautiful in it's simplicity.
-
-## The future of this project
-I hope people will find this project useful and it can be a starting point for many websites in the future. I've learnt
-a lot while making this and getting to grips with VueJS, NuxtJS - I know this isn't perfect and encourage PRs if you
-have suggestions or fixes. One main issue is the lack of any tests at the moment. If you find this project valuable,
-have a moment and the expertise to help, it'd be greatly appreciated.
+### DEPRECATED -- This project has moved to [BW Starter Web App](https://github.com/silverbackis/BwStarterWebApp)
