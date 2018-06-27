@@ -42,7 +42,7 @@
     "vue-clickaway": "^2.1.0",
     "vue-cookie": "^1.1.4",
     "vue-quill-editor": "^2.3.0",
-    "snyk": "^1.41.1"
+    "snyk": "^1.85.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
